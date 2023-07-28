@@ -1,1 +1,1 @@
-# pymc-experimental
+# About pymc-experimental-feedstock
