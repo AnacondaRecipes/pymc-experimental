@@ -16,9 +16,10 @@ build:
 requirements:
   host:
     - pip
-    - pymc >=5.6.0
+    - pymc 5.6.1
     - python
     - scikit-learn
+    - wheel
   run:
     - pymc >=5.6.0
     - python
@@ -38,9 +39,13 @@ test:
     - pymc_experimental.tests.model_transform
     - pymc_experimental.tests.utils
     - pymc_experimental.utils
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
-  home: "http://github.com/pymc-devs/pymc-experimental"
+  home: https://www.pymc.io/projects/experimental/en/latest
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE
