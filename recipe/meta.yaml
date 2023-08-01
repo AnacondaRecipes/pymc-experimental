@@ -60,6 +60,3 @@ about:
 extra:
   recipe-maintainers:
     - boldorider4
-  skip-lints:
-    - invalid_url
-
