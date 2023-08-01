@@ -50,7 +50,7 @@ about:
   license: Apache-2.0
   license_family: APACHE
   license_file: LICENSE
-  summary: the next batch of cool PyMC features
+  summary: The next batch of cool PyMC features
   description: |
     A home for new additions to PyMC, which may include unusual probability distribitions, advanced model fitting
     algorithms, or any code that may be inappropriate to include in the pymc repository, but may want to be made
