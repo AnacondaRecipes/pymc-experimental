@@ -1,0 +1,63 @@
+{% set name = "pymc-experimental" %}
+{% set version = "0.0.9" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: ebbb2494a0a79cc8058aef6302ea3d3c2c04e81801afa58e1ae26e561142c40a
+
+build:
+  number: 0
+  # skip because arviz is not supported for py38
+  skip: True  # [py<39]
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - pip
+    - python
+    - setuptools
+    - wheel
+  run:
+    - pymc >=5.6.0
+    - python
+    - scikit-learn
+
+test:
+  imports:
+    - pymc_experimental
+    - pymc_experimental.distributions
+    - pymc_experimental.distributions.multivariate
+    - pymc_experimental.gp
+    - pymc_experimental.inference
+    - pymc_experimental.model_transform
+    - pymc_experimental.preprocessing
+    - pymc_experimental.tests
+    - pymc_experimental.tests.distributions
+    - pymc_experimental.tests.model_transform
+    - pymc_experimental.tests.utils
+    - pymc_experimental.utils
+  requires:
+    - pip
+  commands:
+    - pip check
+
+about:
+  home: https://www.pymc.io/projects/experimental
+  license: Apache-2.0
+  license_family: APACHE
+  license_file: LICENSE
+  summary: The next batch of cool PyMC features
+  description: |
+    A home for new additions to PyMC, which may include unusual probability distribitions, advanced model fitting
+    algorithms, or any code that may be inappropriate to include in the pymc repository, but may want to be made
+    available to users.
+  doc_url: https://github.com/pymc-devs/pymc-experimental
+  dev_url: https://github.com/pymc-devs/pymc-experimental
+
+extra:
+  recipe-maintainers:
+    - boldorider4
