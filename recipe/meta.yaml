@@ -19,6 +19,7 @@ requirements:
   host:
     - pip
     - python
+    - setuptools
     - wheel
   run:
     - pymc >=5.6.0
